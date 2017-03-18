@@ -1,3 +1,3 @@
 # Jurist
 
-Simplyfy Law
+Simplify Law
