@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" /> <!-- Set to false for Production deployment -->
+	<constant name="struts.action.extension" value="" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.objectFactory.spring.autoWire" value="name" />
+
+	<include file="struts-category.xml"></include>
+	<include file="struts-act.xml"></include>
+	<include file="struts-paragraph.xml"></include>
+	<include file="struts-amendment.xml"></include>
+	<include file="struts-keyword.xml"></include>
+	<include file="struts-search.xml"></include>
+	<include file="struts-forum.xml"></include>
+	<include file="struts-useraccount.xml"></include>
+</struts>
+
+<!-- Support for multi-lingual content. <constant name="struts.custom.i18n.resources" 
+	value="global" /> -->

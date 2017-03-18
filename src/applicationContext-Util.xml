@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       
+       <!-- Load the java.util.Properties from classpath supplied file and auto injected in the Config object's instance variable  -->
+       <util:properties id="utilProperties" location="classpath:config.properties" scope="singleton" />
+       
+       <!-- Config class declares an instance of above declared/loaded properties. -->
+       <bean id="config" class="in.co.jurist.util.Config" autowire="byName" scope="singleton" />
+        
+</beans>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jee="http://www.springframework.org/schema/jee" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+	<!--
+	<context:component-scan base-package="in.co.jurist.action" />
+	<context:component-scan base-package="in.co.jurist.service" />
+	<context:component-scan base-package="in.co.jurist.dao" />
+	-->
+	
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
+	
+	<!--
+	CategoryAction -> CategoryService -> CategoryDao ->	
+	-->
+	
+	<!-- dataSource:DataSource connection reference -->
+	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/mysqlds" />
+	
+	<!-- DBService uses above declared DataSource -->
+	<bean id="dbService" class="in.co.jurist.service.DBService" scope="singleton" autowire="byName" />
+	
+	<!-- Define Action mappings here -->
+	<bean id="categoryAction" class="in.co.jurist.action.CategoryAction" autowire="byName" />
+	<bean id="actAction" class="in.co.jurist.action.ActAction" autowire="byName" />
+	<bean id="paragraphAction" class="in.co.jurist.action.ParagraphAction" autowire="byName" />
+	<bean id="amendmentAction" class="in.co.jurist.action.AmendmentAction" autowire="byName" />
+	<bean id="keywordAction" class="in.co.jurist.action.KeywordAction" autowire="byName" />
+	<bean id="searchAction" class="in.co.jurist.action.SearchAction" autowire="byName" />
+	<bean id="forumAction" class="in.co.jurist.action.ForumAction" autowire="byName" />
+	<bean id="userAccountAction" class="in.co.jurist.action.UserAccountAction" autowire="byName" />	
+	
+	<!-- Define Service beans mappings here -->
+	<bean id="categoryService" class="in.co.jurist.service.impl.CategoryServiceImpl" autowire="byName" />
+	<bean id="actService" class="in.co.jurist.service.impl.ActServiceImpl" autowire="byName" />
+	<bean id="paragraphService" class="in.co.jurist.service.impl.ParagraphServiceImpl" autowire="byName" />
+	<bean id="amendmentService" class="in.co.jurist.service.impl.AmendmentServiceImpl" autowire="byName" />
+	<bean id="keywordService" class="in.co.jurist.service.impl.KeywordServiceImpl" autowire="byName" />
+	<bean id="searchService" class="in.co.jurist.service.impl.SearchServiceImpl" autowire="byName" />
+	<bean id="forumService" class="in.co.jurist.service.impl.ForumServiceImpl" autowire="byName" />
+	<bean id="userAccountService" class="in.co.jurist.service.impl.UserAccountServiceImpl" autowire="byName" />
+	
+	<!-- Define DAO mappings here -->
+	<bean id="categoryDao" class="in.co.jurist.dao.impl.CategoryDaoImpl" autowire="byName" />
+	<bean id="actDao" class="in.co.jurist.dao.impl.ActDaoImpl" autowire="byName" />
+	<bean id="paragraphDao" class="in.co.jurist.dao.impl.ParagraphDaoImpl" autowire="byName" />
+	<bean id="amendmentDao" class="in.co.jurist.dao.impl.AmendmentDaoImpl" autowire="byName" />
+	<bean id="keywordDao" class="in.co.jurist.dao.impl.KeywordDaoImpl" autowire="byName" />
+	<bean id="forumDao" class="in.co.jurist.dao.impl.ForumDaoImpl" autowire="byName" />
+	<bean id="userAccountDao" class="in.co.jurist.dao.impl.UserAccountDaoImpl" autowire="byName" />
+	
+		
+</beans>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="user" extends="json-default" namespace="/user">
+		<action name="validate" class="userAccountAction" method="validateUser">
+			<result type="json" name="none">
+				<param name="root">status</param>
+			</result>
+			<result type="json" name="success">
+				<param name="root">user</param>
+			</result>
+		</action>
+
+		<action name="register" class="userAccountAction" method="registerUser">
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+
+		<action name="login" class="userAccountAction" method="loginUser">			
+			<result type="json" name="success">
+				<param name="root">user</param>
+			</result>
+			<result type="json" name="none">
+				<param name="root">status</param>
+			</result>
+		</action>
+		
+		<action name="logout" class="userAccountAction" method="logoutUser">			
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+	</package>
+</struts>

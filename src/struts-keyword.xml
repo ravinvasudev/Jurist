@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="keywords" extends="json-default" namespace="/keywords">
+		<interceptors>
+			<interceptor-stack name="jsonStack">
+				<interceptor-ref name="json">
+					<param name="enableSMD">true</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<action name="getKeywords" class="keywordAction" method="getKeywords">
+			<result type="json" name="success">
+				<param name="root">list</param>
+			</result>
+		</action>
+		<action name="addKeyword" class="keywordAction" method="addKeyword">
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+		<action name="deleteKeyword" class="keywordAction" method="deleteKeyword">
+			<interceptor-ref name="jsonStack"></interceptor-ref>
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+	</package>
+</struts>

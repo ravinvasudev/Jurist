@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="forum" extends="json-default" namespace="/forum">
+		<action name="ask" class="forumAction" method="postQuestion">
+			<result type="json" name="success">
+				<param name="root">qstatus</param>
+			</result>
+		</action>
+
+		<action name="load" class="forumAction" method="loadForum">
+			<result type="json" name="success">
+				<param name="root">questions</param>
+			</result>
+			<result type="json" name="none">
+				<param name="root">status</param>
+			</result>
+		</action>
+
+		<action name="search" class="forumAction" method="searchForum">
+			<result type="json" name="success">
+				<param name="root">questions</param>
+			</result>
+			<result type="json" name="none">
+				<param name="root">status</param>
+			</result>
+		</action>
+
+		<action name="loadQuestion" class="forumAction" method="loadQuestion">
+			<result type="json" name="success">
+				<param name="root">question</param>
+			</result>
+			<result type="json" name="none">
+				<param name="root">status</param>
+			</result>
+		</action>
+
+		<action name="answer" class="forumAction" method="postAnswer">
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+
+		<action name="voteq" class="forumAction" method="voteQuestion">
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+
+		<action name="votea" class="forumAction" method="voteAnswer">
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+
+		<action name="addComment" class="forumAction" method="addComment">
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+
+	</package>
+</struts>

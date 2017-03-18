@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="paragraphs" extends="json-default" namespace="/paragraphs">
+		<action name="getParagraphHeaders" class="paragraphAction" method="getParagraphHeaders">
+			<result type="json" name="success">
+				<param name="root">list</param>
+			</result>
+		</action>
+		<action name="getParagraphContent" class="paragraphAction" method="getParagraphContent">
+			<result type="json" name="success">
+				<param name="root">respPara</param>
+			</result>
+		</action>
+		<action name="addParagraph" class="paragraphAction" method="addParagraph">
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+		<action name="updateParagraphContent" class="paragraphAction" method="updateParagraphContent">
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+		<action name="updateTranslation" class="paragraphAction" method="updateTranslation">
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+	</package>
+</struts>

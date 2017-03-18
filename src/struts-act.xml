@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="acts" extends="json-default" namespace="/acts">
+		<action name="getActs" class="actAction" method="getActs">
+			<result type="json" name="success">
+				<param name="excludeNullProperties">true</param>
+				<param name="statusCode">200</param>
+				<param name="root">list</param>				
+			</result>
+		</action>
+		<action name="addAct" class="actAction" method="addAct">
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+		<action name="updateActInfo" class="actAction" method="updateActInfo">
+			<result type="json" name="success">
+				<param name="root">status</param>
+			</result>
+		</action>
+	</package>
+</struts>

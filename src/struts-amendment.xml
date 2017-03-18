@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="amendments" extends="json-default" namespace="/amendments">
+		<action name="getAmendments" class="amendmentAction" method="getAmendments">
+			<result type="json" name="success">
+				<param name="root">list</param>
+			</result>
+		</action>
+		<action name="addAmendment" class="amendmentAction" method="addAmendment">
+			<result type="json" name="success">
+				<param name="root"/>
+			</result>
+		</action>
+	</package>
+</struts>
